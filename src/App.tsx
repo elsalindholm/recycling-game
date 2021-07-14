@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react';
 import React from 'react';
+
 import { AppScreens, AppState } from './AppState';
 import { EndScreen } from './screens/EndScreen';
 import { GameScreen } from './screens/GameScreen';
@@ -16,13 +17,23 @@ export class App extends React.PureComponent {
         page = <StartScreen appState={this.appState} />;
         break;
       case AppScreens.GAME:
-        page = <GameScreen appState={this.appState} />;
+        if (this.appState.gameState) {
+          page = (
+            <GameScreen
+              endGame={() => this.appState.exitGame()}
+              gameState={this.appState.gameState}
+            />
+          );
+        }
         break;
       case AppScreens.END:
         page = <EndScreen />;
         break;
+      default:
+        page = <StartScreen appState={this.appState} />;
+        break;
     }
 
-    return <div>{page}</div>;
+    return <div id={'app-root'}>{page}</div>;
   }
 }

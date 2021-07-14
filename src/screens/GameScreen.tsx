@@ -1,19 +1,20 @@
 import React from 'react';
 
-import { AppScreens, AppState } from '../AppState';
+import { GameState } from '../GameState';
 
 interface GameScreenProps {
-  appState: AppState;
+  gameState: GameState;
+  endGame: () => void;
 }
 
 export class GameScreen extends React.PureComponent<GameScreenProps> {
   render() {
-    const { appState } = this.props;
+    const { endGame } = this.props;
 
     return (
       <div>
         <div>This is the game screen.</div>
-        <button onClick={() => appState.toggleScreen(AppScreens.START)}>Exit Game</button>
+        <button onClick={() => endGame()}>Exit Game</button>
       </div>
     );
   }

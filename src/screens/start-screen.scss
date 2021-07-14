@@ -1,0 +1,45 @@
+@import '../appStyles/app-styles.scss';
+
+.start-screen {
+  height: 100%;
+  width: 100%;
+
+  background-image: $gradient-background;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  .start-screen-title {
+    margin: 2% 0;
+
+    color: $light-text;
+    font-size: 4vw;
+    font-family: $montserrat;
+    font-weight: 600;
+  }
+
+  .start-screen-blurb {
+    width: 50%;
+    margin: 2% 0;
+
+    color: $light-text;
+    font-size: 1.3vw;
+    font-family: $roboto;
+  }
+
+  .start-screen-button {
+    padding: 1%;
+    border-radius: 20px;
+
+    font-family: $roboto;
+    font-size: 1.5vw;
+
+    color: $light-text;
+    background-color: $dark-moss-green;
+    border: 2px solid $light-text;
+  }
+}
