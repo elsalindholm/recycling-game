@@ -15,8 +15,12 @@ export class GameScreen extends React.PureComponent<GameScreenProps> {
 
     return (
       <div className={'game-screen'}>
-        <div>This is the game screen.</div>
-        <button onClick={() => endGame()}>Exit Game</button>
+        <div className={'game-screen-navbar'}>
+          <button className={'game-screen-button'} onClick={() => endGame()}>
+            Exit Game
+          </button>
+        </div>
+        <div className={'game-grid'}></div>
       </div>
     );
   }
