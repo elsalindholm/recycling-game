@@ -17,7 +17,19 @@
 
     border: 1px solid white;
 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
     .game-screen-button {
+      font-size: 1vw;
+      padding: 1%;
+
+      border-radius: 10px;
+
+      font-family: $roboto;
+      font-weight: 600;
     }
   }
 
@@ -28,8 +40,8 @@
     border: 1px solid white;
 
     display: grid;
-    grid-template-columns: repeat(8, minmax(0, 77px));
-    grid-template-rows: repeat(8, minmax(0, 77px));
+    grid-template-columns: repeat(8, minmax(0, 100px));
+    grid-template-rows: repeat(8, minmax(0, 100px));
     align-items: center;
     justify-items: center;
 
@@ -41,52 +53,49 @@
       grid-row: 1 / 9;
       grid-column: 1 / 9;
 
-      border: 15px solid white;
+      border: 30px solid white;
       border-radius: 50%;
     }
 
-    .grid-item {
-      background-color: aliceblue;
-      border: 1px solid darkgreen;
-      z-index: 200;
-    }
-
-    .bin {
-      height: 77px;
-      width: 77px;
-    }
-
-    .bin1 {
+    .bin1-cont {
       grid-row: 1 / 2;
       grid-column: 4 / span 2;
+      z-index: 200;
     }
-    .bin2 {
+    .bin2-cont {
       grid-row: 2 / 3;
       grid-column: 7 / 8;
+      z-index: 200;
     }
-    .bin3 {
+    .bin3-cont {
       grid-row: 4 / span 2;
       grid-column: 8/ 9;
+      z-index: 200;
     }
-    .bin4 {
+    .bin4-cont {
       grid-row: 7 / 8;
       grid-column: 7 / 8;
+      z-index: 200;
     }
-    .bin5 {
+    .bin5-cont {
       grid-row: 8 / 9;
       grid-column: 4 / span 2;
+      z-index: 200;
     }
-    .bin6 {
+    .bin6-cont {
       grid-row: 7 / 8;
       grid-column: 2 / 3;
+      z-index: 200;
     }
-    .bin7 {
+    .bin7-cont {
       grid-row: 4 / span 2;
       grid-column: 1 / 2;
+      z-index: 200;
     }
-    .bin8 {
+    .bin8-cont {
       grid-row: 2 / 3;
       grid-column: 2 / 3;
+      z-index: 200;
     }
     .item-to-sort {
       height: 150px;

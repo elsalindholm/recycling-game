@@ -1,4 +1,16 @@
 import React from 'react';
+import { BinComp } from '../gameObjects/BinComp';
+
+import {
+  donateSell,
+  foodWasteBin,
+  gardenWasteBin,
+  generalBin,
+  glassBin,
+  paperBin,
+  plasticMetalBin,
+  recyclingCentre,
+} from '../gameObjects/Bins';
 
 import { GameState } from '../GameState';
 
@@ -17,23 +29,39 @@ export class GameScreen extends React.PureComponent<GameScreenProps> {
       <div className={'game-screen'}>
         <div className={'game-screen-navbar'}>
           <button className={'game-screen-button'} onClick={() => endGame()}>
-            Exit Game
+            EXIT GAME
           </button>
         </div>
         <div className={'game-grid'}>
           <div className={'bin-circle'}></div>
+          <div className={'bin1-cont'}>
+            <BinComp bin={generalBin} />
+          </div>
+          <div className={'bin2-cont'}>
+            <BinComp bin={plasticMetalBin} />
+          </div>
+          <div className={'bin3-cont'}>
+            <BinComp bin={paperBin} />
+          </div>
+          <div className={'bin4-cont'}>
+            <BinComp bin={glassBin} />
+          </div>
+          <div className={'bin5-cont'}>
+            <BinComp bin={foodWasteBin} />
+          </div>
+          <div className={'bin6-cont'}>
+            <BinComp bin={gardenWasteBin} />
+          </div>
+          <div className={'bin7-cont'}>
+            <BinComp bin={recyclingCentre} />
+          </div>
+          <div className={'bin8-cont'}>
+            <BinComp bin={donateSell} />
+          </div>
 
-          <div className={'grid-item bin bin1'}>Bin 1</div>
-          <div className={'grid-item bin bin2'}>Bin 2</div>
-          <div className={'grid-item bin bin3'}>Bin 3</div>
-          <div className={'grid-item bin bin4'}>Bin 4</div>
-          <div className={'grid-item bin bin5'}>Bin 5</div>
-          <div className={'grid-item bin bin6'}>Bin 6</div>
-          <div className={'grid-item bin bin7'}>Bin 7</div>
-          <div className={'grid-item bin bin8'}>Bin 8</div>
-          <div className={'grid-item item-to-sort'}>Item to sort</div>
-          <div className={'grid-item score'}>Score</div>
-          <div className={'grid-item item-sort-counter'}>Items to sort counter</div>
+          <div className={'item-to-sort'}>Item to sort</div>
+          <div className={'score'}>Score</div>
+          <div className={'item-sort-counter'}>Items to sort counter</div>
         </div>
       </div>
     );

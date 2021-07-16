@@ -6,49 +6,49 @@ export interface Bin {
   binType: BinType;
 }
 
-export const GeneralBin: Bin = {
+export const generalBin: Bin = {
   name: 'General Bin',
   image: 'none',
   binType: BinType.GENERAL,
 };
 
-export const PlasticMetalBin: Bin = {
+export const plasticMetalBin: Bin = {
   name: 'Plastic & Metal Bin',
   image: 'none',
   binType: BinType.PLASTICMETAL,
 };
 
-export const PaperBin: Bin = {
+export const paperBin: Bin = {
   name: 'Paper Bin',
   image: 'none',
   binType: BinType.PAPER,
 };
 
-export const GlassBin: Bin = {
+export const glassBin: Bin = {
   name: 'Glass Bin',
   image: 'none',
   binType: BinType.GLASS,
 };
 
-export const FoodWasteBin: Bin = {
+export const foodWasteBin: Bin = {
   name: 'Food Waste Bin',
   image: 'none',
   binType: BinType.FOOD,
 };
 
-export const GardenWasteBin: Bin = {
+export const gardenWasteBin: Bin = {
   name: 'Garden Waste Bin',
   image: 'none',
   binType: BinType.GARDEN,
 };
 
-export const RecyclingCentre: Bin = {
+export const recyclingCentre: Bin = {
   name: 'Recycling Centre or Point',
   image: 'none',
   binType: BinType.RECYCLINGCENTRE,
 };
 
-export const DonateSell: Bin = {
+export const donateSell: Bin = {
   name: 'Donate or Sell',
   image: 'none',
   binType: BinType.DONATESELL,
