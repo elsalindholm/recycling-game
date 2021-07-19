@@ -11,6 +11,8 @@ import {
   plasticMetalBin,
   recyclingCentre,
 } from '../gameObjects/Bins';
+import { WasteItemComp } from '../gameObjects/WasteItemComp';
+import { pizzaBox } from '../gameObjects/WasteItems';
 
 import { GameState } from '../GameState';
 
@@ -59,7 +61,9 @@ export class GameScreen extends React.PureComponent<GameScreenProps> {
             <BinComp bin={donateSell} />
           </div>
 
-          <div className={'item-to-sort'}>Item to sort</div>
+          <div className={'item-to-sort'}>
+            <WasteItemComp wasteItem={pizzaBox} />
+          </div>
           <div className={'score'}>Score</div>
           <div className={'item-sort-counter'}>Items to sort counter</div>
         </div>

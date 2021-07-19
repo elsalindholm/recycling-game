@@ -1,5 +1,7 @@
 import { observer } from 'mobx-react';
 import React from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import { AppScreens, AppState } from './AppState';
 import { EndScreen } from './screens/EndScreen';
@@ -34,6 +36,10 @@ export class App extends React.PureComponent {
         break;
     }
 
-    return <div id={'app-root'}>{page}</div>;
+    return (
+      <DndProvider backend={HTML5Backend}>
+        <div id={'app-root'}>{page}</div>
+      </DndProvider>
+    );
   }
 }

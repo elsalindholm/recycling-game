@@ -1,4 +1,5 @@
 import { action, observable } from 'mobx';
+import { Bin } from './gameObjects/Bins';
 
 import { WasteItem, wasteItems } from './gameObjects/WasteItems';
 
@@ -32,5 +33,9 @@ export class GameState {
     }
 
     this.itemsToSort = gameWasteItems;
+  }
+
+  @action public moveItemToBin(item: WasteItem, bin: Bin) {
+    console.log(`${item.id} was placed into ${bin.name}`);
   }
 }

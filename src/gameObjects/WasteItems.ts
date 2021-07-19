@@ -1,5 +1,6 @@
 export interface WasteItem {
-  name: string;
+  id: string;
+  type: string;
   //image: string;
   //typeOfWaste?: string;
   //acceptedBins: [];
@@ -7,55 +8,68 @@ export interface WasteItem {
 }
 
 export const glassBottle: WasteItem = {
-  name: 'Glass Bottle',
+  id: 'Glass Bottle',
+  type: 'wasteItem',
 };
 
 export const brokenGlass: WasteItem = {
-  name: 'Broken Drinking Glass',
+  id: 'Broken Drinking Glass',
+  type: 'wasteItem',
 };
 
 export const paper: WasteItem = {
-  name: 'Paper',
+  id: 'Paper',
+  type: 'wasteItem',
 };
 
 export const pizzaBox: WasteItem = {
-  name: 'Used Pizza Box',
+  id: 'Used Pizza Box',
+  type: 'wasteItem',
 };
 
 export const brokenCrockery: WasteItem = {
-  name: 'Broken Crockery',
+  id: 'Broken Crockery',
+  type: 'wasteItem',
 };
 
 export const usedBedsheet: WasteItem = {
-  name: 'Used Bedsheet',
+  id: 'Used Bedsheet',
+  type: 'wasteItem',
 };
 
 export const plasticBags: WasteItem = {
-  name: 'Clean Plastic Bags',
+  id: 'Clean Plastic Bags',
+  type: 'wasteItem',
 };
 
 export const smallElectronics: WasteItem = {
-  name: 'Small Electronics',
+  id: 'Small Electronics',
+  type: 'wasteItem',
 };
 
 export const teaBag: WasteItem = {
-  name: 'Tea Bag',
+  id: 'Tea Bag',
+  type: 'wasteItem',
 };
 
 export const looseTea: WasteItem = {
-  name: 'Loose Tea Leaves',
+  id: 'Loose Tea Leaves',
+  type: 'wasteItem',
 };
 
 export const foodScraps: WasteItem = {
-  name: 'Food Scraps',
+  id: 'Food Scraps',
+  type: 'wasteItem',
 };
 
 export const metalCan: WasteItem = {
-  name: 'Metal Can',
+  id: 'Metal Can',
+  type: 'wasteItem',
 };
 
 export const cripsBags: WasteItem = {
-  name: 'Crips Bags',
+  id: 'Crips Bags',
+  type: 'wasteItem',
 };
 
 export const wasteItems = [
