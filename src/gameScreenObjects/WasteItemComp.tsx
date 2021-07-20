@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react';
 import React from 'react';
 import { useRef } from 'react';
 import { useDrag } from 'react-dnd';
@@ -7,7 +8,7 @@ interface Props {
   wasteItem: WasteItem;
 }
 
-export const WasteItemComp: React.FC<Props> = ({ wasteItem }) => {
+export const WasteItemComp: React.FC<Props> = observer(({ wasteItem }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const [_, drag] = useDrag({
@@ -21,4 +22,4 @@ export const WasteItemComp: React.FC<Props> = ({ wasteItem }) => {
       {wasteItem.id}
     </div>
   );
-};
+});
