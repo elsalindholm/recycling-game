@@ -5,7 +5,6 @@ import { WasteItem } from './WasteItems';
 
 interface Props {
   wasteItem: WasteItem;
-  moveItemToBin: () => void;
 }
 
 export const WasteItemComp: React.FC<Props> = ({ wasteItem }) => {
@@ -13,8 +12,7 @@ export const WasteItemComp: React.FC<Props> = ({ wasteItem }) => {
 
   const [_, drag] = useDrag({
     item: wasteItem,
-    collect: 
-    //collect: (monitor) => ({ isDragging: monitor.isDragging() }),
+    collect: (monitor) => ({ isDragging: monitor.isDragging() }),
   });
   drag(ref);
 

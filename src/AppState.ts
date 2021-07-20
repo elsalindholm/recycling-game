@@ -1,6 +1,5 @@
 import { action, observable } from 'mobx';
-import { Bin } from './gameObjects/Bins';
-import { WasteItem } from './gameObjects/WasteItems';
+
 import { GameState } from './GameState';
 
 export enum AppScreens {

@@ -3,18 +3,20 @@ import { Bin } from './Bins';
 import { useDrag, useDrop } from 'react-dnd';
 
 import './bin-comp.scss';
+import { WasteItem } from './WasteItems';
 
 interface BinProps {
   bin: Bin;
+  onDrop: (bin: Bin) => void;
 }
 
-export const BinComp: React.FC<BinProps> = ({ bin }) => {
+export const BinComp: React.FC<BinProps> = ({ bin, onDrop }) => {
   const [{ isOver }, dropRef] = useDrop({
     accept: 'wasteItem',
     collect: (monitor) => ({ isOver: monitor.isOver(), canDrop: monitor.canDrop() }),
-    drop: (item) => {
+    drop: (_item: WasteItem) => {
       if (isOver) {
-        console.log(`dropped item onto ${bin.name}`);
+        onDrop(bin);
       }
       return;
     },
