@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BinComp } from '../gameObjects/BinComp';
+import { BinComp } from '../gameScreenObjects/BinComp';
 import {
   Bin,
   donateSell,
@@ -11,9 +11,10 @@ import {
   paperBin,
   plasticMetalBin,
   recyclingCentre,
-} from '../gameObjects/Bins';
-import { WasteItemComp } from '../gameObjects/WasteItemComp';
-import { WasteItem } from '../gameObjects/WasteItems';
+} from '../gameScreenObjects/Bins';
+import { ItemCounter } from '../gameScreenObjects/ItemCounter';
+import { ScoreCounter } from '../gameScreenObjects/ScoreCounter';
+import { WasteItemComp } from '../gameScreenObjects/WasteItemComp';
 import { GameState } from '../GameState';
 
 import './game-screen.scss';
@@ -64,8 +65,12 @@ export class GameScreen extends React.PureComponent<GameScreenProps> {
           <div className={'item-to-sort'}>
             <WasteItemComp wasteItem={gameState.currentItem} />
           </div>
-          <div className={'score'}>Score</div>
-          <div className={'item-sort-counter'}>Items to sort counter</div>
+          <div className={'score'}>
+            <ScoreCounter gameState={gameState} />
+          </div>
+          <div className={'item-sort-counter'}>
+            <ItemCounter gameState={gameState} />
+          </div>
         </div>
       </div>
     );

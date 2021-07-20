@@ -1,13 +1,14 @@
 import { action, observable } from 'mobx';
 
-import { Bin } from './gameObjects/Bins';
-import { WasteItem, wasteItems } from './gameObjects/WasteItems';
+import { Bin } from './gameScreenObjects/Bins';
+import { WasteItem, wasteItems } from './gameScreenObjects/WasteItems';
 
 export class GameState {
-  private readonly noOfWasteItems: number = 10;
+  public readonly noOfWasteItems: number = 10;
   private itemsToSort: WasteItem[] = [];
-  @observable public displayItemIndex: number = 0;
+  @observable public displayItemIndex: number = -1;
   @observable public currentItem: WasteItem;
+  @observable public gameScore: number = 0;
 
   constructor() {
     this.setupGame();
@@ -29,13 +30,18 @@ export class GameState {
 
   @action public moveItemToBin(bin: Bin) {
     console.log(`${this.currentItem.id} was placed into ${bin.name}`);
+    if (this.currentItem.acceptedBins.includes(bin.binType)) {
+      this.gameScore++;
+      this.displayItemToSort();
+    } else {
+      this.displayItemToSort();
+    }
   }
 
   @action private displayItemToSort() {
     if (this.displayItemIndex < this.itemsToSort.length) {
-      this.currentItem = this.itemsToSort[this.displayItemIndex];
-      console.log(this.currentItem);
       this.displayItemIndex++;
+      this.currentItem = this.itemsToSort[this.displayItemIndex];
     }
   }
 }
