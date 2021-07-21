@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react';
 import React from 'react';
 
 import { BinComp } from '../gameScreenObjects/BinComp';
@@ -24,9 +25,24 @@ interface GameScreenProps {
   endGame: () => void;
 }
 
+@observer
 export class GameScreen extends React.PureComponent<GameScreenProps> {
   render() {
     const { endGame, gameState } = this.props;
+
+    let itemToSort: JSX.Element;
+    if (gameState.currentItem) {
+      itemToSort = <WasteItemComp wasteItem={gameState.currentItem} />;
+    } else {
+      itemToSort = <div>Game ended!</div>;
+    }
+
+    let itemCounter: JSX.Element;
+    if (gameState.displayItemIndex < gameState.noOfWasteItems) {
+      itemCounter = <ItemCounter gameState={gameState} />;
+    } else {
+      itemCounter = <div>10 / 10</div>;
+    }
 
     return (
       <div className={'game-screen'}>
@@ -62,15 +78,11 @@ export class GameScreen extends React.PureComponent<GameScreenProps> {
             <BinComp bin={donateSell} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
           </div>
 
-          <div className={'item-to-sort'}>
-            <WasteItemComp wasteItem={gameState.currentItem} />
-          </div>
+          <div className={'item-to-sort'}>{itemToSort}</div>
           <div className={'score'}>
             <ScoreCounter gameState={gameState} />
           </div>
-          <div className={'item-sort-counter'}>
-            <ItemCounter gameState={gameState} />
-          </div>
+          <div className={'item-sort-counter'}>{itemCounter}</div>
         </div>
       </div>
     );

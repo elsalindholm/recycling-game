@@ -10,7 +10,7 @@ interface Props {
 
 export const WasteItemComp: React.FC<Props> = observer(({ wasteItem }) => {
   const ref = useRef<HTMLDivElement>(null);
-
+  console.log('wasteItemComp render', wasteItem);
   const [_, drag] = useDrag({
     item: wasteItem,
     collect: (monitor) => ({ isDragging: monitor.isDragging() }),

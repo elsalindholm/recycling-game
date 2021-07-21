@@ -42,6 +42,9 @@ export class GameState {
     if (this.displayItemIndex < this.itemsToSort.length) {
       this.displayItemIndex++;
       this.currentItem = this.itemsToSort[this.displayItemIndex];
+    } else {
+      this.currentItem = undefined;
+      this.displayItemIndex = undefined;
     }
   }
 }
