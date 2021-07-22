@@ -51,38 +51,41 @@ export class GameScreen extends React.PureComponent<GameScreenProps> {
             EXIT GAME
           </button>
         </div>
-        <div className={'game-grid'}>
-          <div className={'bin-circle'}></div>
-          <div className={'bin1-cont'}>
-            <BinComp bin={generalBin} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
-          </div>
-          <div className={'bin2-cont'}>
-            <BinComp bin={plasticMetalBin} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
-          </div>
-          <div className={'bin3-cont'}>
-            <BinComp bin={paperBin} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
-          </div>
-          <div className={'bin4-cont'}>
-            <BinComp bin={glassBin} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
-          </div>
-          <div className={'bin5-cont'}>
-            <BinComp bin={foodWasteBin} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
-          </div>
-          <div className={'bin6-cont'}>
-            <BinComp bin={gardenWasteBin} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
-          </div>
-          <div className={'bin7-cont'}>
-            <BinComp bin={recyclingCentre} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
-          </div>
-          <div className={'bin8-cont'}>
-            <BinComp bin={donateSell} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
-          </div>
+        <div className={'game-screen-contents'}>
+          <div className={'game-grid'}>
+            <div className={'bin-circle'}></div>
+            <div className={'bin1-cont'}>
+              <BinComp bin={generalBin} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
+            </div>
+            <div className={'bin2-cont'}>
+              <BinComp bin={plasticMetalBin} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
+            </div>
+            <div className={'bin3-cont'}>
+              <BinComp bin={paperBin} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
+            </div>
+            <div className={'bin4-cont'}>
+              <BinComp bin={glassBin} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
+            </div>
+            <div className={'bin5-cont'}>
+              <BinComp bin={foodWasteBin} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
+            </div>
+            <div className={'bin6-cont'}>
+              <BinComp bin={gardenWasteBin} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
+            </div>
+            <div className={'bin7-cont'}>
+              <BinComp bin={recyclingCentre} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
+            </div>
+            <div className={'bin8-cont'}>
+              <BinComp bin={donateSell} onDrop={(bin: Bin) => gameState.moveItemToBin(bin)} />
+            </div>
 
-          <div className={'item-to-sort'}>{itemToSort}</div>
-          <div className={'score'}>
-            <ScoreCounter gameState={gameState} />
+            <div className={'item-to-sort'}>{itemToSort}</div>
+            <div className={'score'}>
+              <ScoreCounter gameState={gameState} />
+            </div>
+            <div className={'item-sort-counter'}>{itemCounter}</div>
           </div>
-          <div className={'item-sort-counter'}>{itemCounter}</div>
+          <div className={'feedback-window'}>Game Feedback</div>
         </div>
       </div>
     );

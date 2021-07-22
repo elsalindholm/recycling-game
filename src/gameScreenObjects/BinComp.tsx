@@ -1,9 +1,9 @@
 import React from 'react';
-import { Bin } from './Bins';
-import { useDrag, useDrop } from 'react-dnd';
+import { observer } from 'mobx-react';
+import { useDrop } from 'react-dnd';
 
 import { WasteItem } from './WasteItems';
-import { observer } from 'mobx-react';
+import { Bin } from './Bins';
 
 import './bin-comp.scss';
 
@@ -26,8 +26,7 @@ export const BinComp: React.FC<BinProps> = observer(({ bin, onDrop }) => {
 
   return (
     <div className={'bin-item'} ref={dropRef}>
-      <div className={'bin-image'}></div>
-      <div className={'bin-name'}>{bin.name}</div>
+      {bin.name}
     </div>
   );
 });
