@@ -85,7 +85,13 @@ export class GameScreen extends React.PureComponent<GameScreenProps> {
             </div>
             <div className={'item-sort-counter'}>{itemCounter}</div>
           </div>
-          <div className={'feedback-window'}>Game Feedback</div>
+          <div className={'feedback-window'}>
+            Game Feedback
+            <div></div>
+            <div>
+              <button>Play Again</button>
+            </div>
+          </div>
         </div>
       </div>
     );
