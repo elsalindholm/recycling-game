@@ -3,12 +3,19 @@ import { action, observable } from 'mobx';
 import { Bin } from './gameScreenObjects/Bins';
 import { WasteItem, wasteItems } from './gameScreenObjects/WasteItems';
 
+export interface FeedbackItem {
+  wasteItem: WasteItem;
+  bin: Bin;
+  answerCorrect: boolean;
+}
+
 export class GameState {
   public readonly noOfWasteItems: number = 10;
   private itemsToSort: WasteItem[] = [];
   @observable public displayItemIndex: number = -1;
   @observable public currentItem: WasteItem;
   @observable public gameScore: number = 0;
+  @observable public feedbackItems: FeedbackItem[] = [];
 
   constructor() {
     this.setupGame();
@@ -30,12 +37,21 @@ export class GameState {
 
   @action public moveItemToBin(bin: Bin) {
     console.log(`${this.currentItem.id} was placed into ${bin.name}`);
-    if (this.currentItem.acceptedBins.includes(bin.binType)) {
+
+    const result = this.currentItem.acceptedBins.includes(bin.binType);
+
+    const feedbackItem: FeedbackItem = {
+      wasteItem: this.currentItem,
+      bin: bin,
+      answerCorrect: result,
+    };
+    this.feedbackItems.push(feedbackItem);
+
+    if (result) {
       this.gameScore++;
-      this.displayItemToSort();
-    } else {
-      this.displayItemToSort();
     }
+
+    this.displayItemToSort();
   }
 
   @action private displayItemToSort() {

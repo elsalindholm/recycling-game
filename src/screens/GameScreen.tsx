@@ -13,6 +13,7 @@ import {
   plasticMetalBin,
   recyclingCentre,
 } from '../gameScreenObjects/Bins';
+import { FeedbackItemComp } from '../gameScreenObjects/FeedbackComp';
 import { ItemCounter } from '../gameScreenObjects/ItemCounter';
 import { ScoreCounter } from '../gameScreenObjects/ScoreCounter';
 import { WasteItemComp } from '../gameScreenObjects/WasteItemComp';
@@ -87,7 +88,7 @@ export class GameScreen extends React.PureComponent<GameScreenProps> {
           </div>
           <div className={'feedback-window'}>
             Game Feedback
-            <div></div>
+            <div className={'feedback-container'}>{this.renderFeedbackItems()}</div>
             <div>
               <button>Play Again</button>
             </div>
@@ -95,5 +96,16 @@ export class GameScreen extends React.PureComponent<GameScreenProps> {
         </div>
       </div>
     );
+  }
+
+  private renderFeedbackItems() {
+    const { gameState } = this.props;
+
+    const items: JSX.Element[] = [];
+
+    gameState.feedbackItems.forEach((item) => {
+      items.push(<FeedbackItemComp feedbackItem={item} />);
+    });
+    return items;
   }
 }

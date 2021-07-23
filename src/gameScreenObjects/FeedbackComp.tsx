@@ -1,22 +1,27 @@
 import { observer } from 'mobx-react';
 import React from 'react';
-import { Bin } from './Bins';
-import { WasteItem } from './WasteItems';
+
+import { FeedbackItem } from '../GameState';
+
+import './feedback-comp.scss';
 
 export interface FeedbackItemProps {
-  wasteItem: WasteItem;
-  bin: Bin;
+  feedbackItem: FeedbackItem;
 }
 
-export const FeedbackItem: React.FC<FeedbackItemProps> = observer(({ wasteItem, bin }) => {
+export const FeedbackItemComp: React.FC<FeedbackItemProps> = observer(({ feedbackItem }) => {
   return (
-    <div>
-      <div>
-        {wasteItem.id} {'-->'} {bin.name}
+    <div className={'feedback-comp'}>
+      <div className={'feedback-row1'}>
+        {feedbackItem.wasteItem.id} {'-->'} {feedbackItem.bin.name}
       </div>
-      <div>
-        Feedack goes here but need to figure out where to make the decision on whether it's positive
-        or negative feedback.
+      <div className={'feedback-row2'}>
+        {feedbackItem.answerCorrect ? 'Correct!' : 'Oops, wrong!'}
+      </div>
+      <div className={'feedback-row3'}>
+        {feedbackItem.answerCorrect
+          ? feedbackItem.wasteItem.messageForCorrect
+          : feedbackItem.wasteItem.messageForIncorrect}
       </div>
     </div>
   );
