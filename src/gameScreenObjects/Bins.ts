@@ -34,7 +34,7 @@ export const paperBin: Bin = {
 };
 
 export const glassBin: Bin = {
-  name: 'Glass Bin',
+  name: 'Glass Bin (Black Box)',
   image: 'none',
   binType: BinType.GLASS,
 };

@@ -42,7 +42,7 @@ export class GameScreen extends React.PureComponent<GameScreenProps> {
     if (gameState.displayItemIndex < gameState.noOfWasteItems) {
       itemCounter = <ItemCounter gameState={gameState} />;
     } else {
-      itemCounter = <div>10 / 10</div>;
+      itemCounter = <div className={'item-counter'}>10 / 10</div>;
     }
 
     return (
@@ -87,7 +87,8 @@ export class GameScreen extends React.PureComponent<GameScreenProps> {
             <div className={'item-sort-counter'}>{itemCounter}</div>
           </div>
           <div className={'feedback-window'}>
-            Game Feedback
+            Start recycling by dragging an item from the middle to the correct disposal option. You
+            can see feedback for your choices below!
             <div className={'feedback-container'}>{this.renderFeedbackItems()}</div>
             <div>
               <button>Play Again</button>
@@ -104,7 +105,7 @@ export class GameScreen extends React.PureComponent<GameScreenProps> {
     const items: JSX.Element[] = [];
 
     gameState.feedbackItems.forEach((item) => {
-      items.push(<FeedbackItemComp feedbackItem={item} />);
+      items.unshift(<FeedbackItemComp feedbackItem={item} />);
     });
     return items;
   }

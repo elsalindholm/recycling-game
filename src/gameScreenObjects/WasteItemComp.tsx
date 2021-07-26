@@ -2,7 +2,10 @@ import { observer } from 'mobx-react';
 import React from 'react';
 import { useRef } from 'react';
 import { useDrag } from 'react-dnd';
+
 import { WasteItem } from './WasteItems';
+
+import './waste-item-comp.scss';
 
 interface Props {
   wasteItem: WasteItem;
@@ -18,8 +21,8 @@ export const WasteItemComp: React.FC<Props> = observer(({ wasteItem }) => {
   drag(ref);
 
   return (
-    <div ref={ref} style={{ width: '50px', height: '50px', backgroundColor: 'pink' }}>
-      {wasteItem.id}
+    <div className={'waste-item'} ref={ref}>
+      <div>{wasteItem.id}</div>
     </div>
   );
 });

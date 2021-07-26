@@ -10,8 +10,10 @@ export interface FeedbackItemProps {
 }
 
 export const FeedbackItemComp: React.FC<FeedbackItemProps> = observer(({ feedbackItem }) => {
+  let backgroundClassName: string = feedbackItem.answerCorrect ? 'answer-correct' : 'answer-wrong';
+
   return (
-    <div className={'feedback-comp'}>
+    <div className={'feedback-comp ' + backgroundClassName}>
       <div className={'feedback-row1'}>
         {feedbackItem.wasteItem.id} {'-->'} {feedbackItem.bin.name}
       </div>

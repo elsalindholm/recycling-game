@@ -1,6 +1,40 @@
 @import '../appStyles/app-styles.scss';
 
 .feedback-comp {
-  width: 290px;
-  height: 40px;
+  width: 300px;
+  height: auto;
+  margin: 2% 0;
+  padding: 2% 1%;
+
+  border-radius: 15px;
+  background-color: white;
+
+  font-family: $roboto;
+
+  &.answer-correct {
+    color: rgb(2, 92, 2);
+    background-color: rgb(216, 231, 216);
+    border: 3px solid rgb(2, 92, 2);
+  }
+  &.answer-wrong {
+    color: rgb(189, 36, 36);
+    background-color: rgb(238, 195, 195);
+    border: 3px solid rgb(189, 36, 36);
+  }
+
+  .feedback-row1 {
+    margin: 2% 0;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .feedback-row2 {
+    margin: 2% 0;
+    font-weight: 700;
+  }
+
+  .feedback-row3 {
+    margin: 2% 0;
+    font-style: italic;
+  }
 }

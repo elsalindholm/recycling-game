@@ -3,13 +3,46 @@
 .bin-item {
   height: 100px;
   width: 100px;
+  padding: 2%;
 
   z-index: 200;
 
-  background-color: aliceblue;
+  text-align: center;
+  color: white;
+
+  font-family: $montserrat;
+  font-weight: 500;
+  font-size: 14px;
+
+  border-radius: 50px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+
+  &.general {
+    background-color: rgb(8, 83, 8);
+  }
+  &.plastic-metal {
+    background-color: rgb(26, 118, 224);
+  }
+  &.paper {
+    background-color: rgb(177, 9, 9);
+  }
+  &.glass {
+    background-color: black;
+  }
+  &.food {
+    background-color: grey;
+  }
+  &.garden {
+    background-color: rgb(119, 53, 27);
+  }
+  &.recycling-centre {
+    background-color: rgb(241, 158, 3);
+  }
+  &.donate-sell {
+    background-color: rgb(243, 38, 89);
+  }
 }
