@@ -4,7 +4,7 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import { AppScreens, AppState } from './AppState';
-import { EndScreen } from './screens/EndScreen';
+
 import { GameScreen } from './screens/GameScreen';
 import { StartScreen } from './screens/StartScreen';
 
@@ -29,9 +29,7 @@ export class App extends React.PureComponent {
           );
         }
         break;
-      case AppScreens.END:
-        page = <EndScreen />;
-        break;
+
       default:
         page = <StartScreen appState={this.appState} />;
         break;

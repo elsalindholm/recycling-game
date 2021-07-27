@@ -19,16 +19,16 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
 
-    .game-screen-button {
-      font-size: 1vw;
-      padding: 1%;
+  .game-screen-button {
+    font-size: 1vw;
+    padding: 1%;
 
-      border-radius: 10px;
+    border-radius: 10px;
 
-      font-family: $roboto;
-      font-weight: 600;
-    }
+    font-family: $roboto;
+    font-weight: 600;
   }
   .game-screen-contents {
     display: flex;

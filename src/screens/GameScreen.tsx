@@ -17,6 +17,7 @@ import {
 import { FeedbackItemComp } from '../gameScreenObjects/FeedbackComp';
 import { ItemCounter } from '../gameScreenObjects/ItemCounter';
 import { ScoreCounter } from '../gameScreenObjects/ScoreCounter';
+import { ScoreFeedbackComp } from '../gameScreenObjects/ScoreFeedbackComp';
 import { WasteItemComp } from '../gameScreenObjects/WasteItemComp';
 import { GameState } from '../GameState';
 
@@ -36,21 +37,8 @@ export class GameScreen extends React.PureComponent<GameScreenProps> {
     let itemToSort: JSX.Element;
     if (gameState.currentItem) {
       itemToSort = <WasteItemComp wasteItem={gameState.currentItem} />;
-    } else if (gameState.gameScore < 4) {
-      itemToSort = (
-        <div>
-          Room for improvement! Check what you can recycle through your local council waste
-          collection services!
-        </div>
-      );
-    } else if (gameState.gameScore < 7) {
-      itemToSort = (
-        <div>
-          Well done! There's room for improvement, but you've made a great start at recycling!
-        </div>
-      );
-    } else if (gameState.gameScore >= 7) {
-      itemToSort = <div>Congratulations! You're pretty good at recycling. Keep it up!</div>;
+    } else {
+      itemToSort = <ScoreFeedbackComp gameScore={gameState.gameScore} endGame={() => endGame()} />;
     }
 
     let itemCounter: JSX.Element;
@@ -105,9 +93,6 @@ export class GameScreen extends React.PureComponent<GameScreenProps> {
             Start recycling by dragging an item from the middle to the correct disposal option. You
             can see feedback for your choices below!
             <div className={'feedback-container'}>{this.renderFeedbackItems()}</div>
-            <div>
-              <button onClick={() => endGame()}>Play Again</button>
-            </div>
           </div>
         </div>
       </div>
