@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react';
 import React from 'react';
+import { isShorthandPropertyAssignment } from 'typescript';
 
 import { BinComp } from '../gameScreenObjects/BinComp';
 import {
@@ -24,18 +25,32 @@ import './game-screen.scss';
 interface GameScreenProps {
   gameState: GameState;
   endGame: () => void;
+  startGame: () => void;
 }
 
 @observer
 export class GameScreen extends React.PureComponent<GameScreenProps> {
   render() {
-    const { endGame, gameState } = this.props;
+    const { endGame, startGame, gameState } = this.props;
 
     let itemToSort: JSX.Element;
     if (gameState.currentItem) {
       itemToSort = <WasteItemComp wasteItem={gameState.currentItem} />;
-    } else {
-      itemToSort = <div>Game ended!</div>;
+    } else if (gameState.gameScore < 4) {
+      itemToSort = (
+        <div>
+          Room for improvement! Check what you can recycle through your local council waste
+          collection services!
+        </div>
+      );
+    } else if (gameState.gameScore < 7) {
+      itemToSort = (
+        <div>
+          Well done! There's room for improvement, but you've made a great start at recycling!
+        </div>
+      );
+    } else if (gameState.gameScore >= 7) {
+      itemToSort = <div>Congratulations! You're pretty good at recycling. Keep it up!</div>;
     }
 
     let itemCounter: JSX.Element;
@@ -91,7 +106,7 @@ export class GameScreen extends React.PureComponent<GameScreenProps> {
             can see feedback for your choices below!
             <div className={'feedback-container'}>{this.renderFeedbackItems()}</div>
             <div>
-              <button>Play Again</button>
+              <button onClick={() => endGame()}>Play Again</button>
             </div>
           </div>
         </div>

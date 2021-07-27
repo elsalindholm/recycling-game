@@ -18,6 +18,7 @@ export class AppState {
 
   public startGame() {
     this.gameState = new GameState();
+
     this.toggleScreen(AppScreens.GAME);
   }
 

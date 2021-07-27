@@ -24,6 +24,7 @@ export class App extends React.PureComponent {
             <GameScreen
               endGame={() => this.appState.exitGame()}
               gameState={this.appState.gameState}
+              startGame={() => this.appState.startGame}
             />
           );
         }

@@ -21,8 +21,10 @@ export const WasteItemComp: React.FC<Props> = observer(({ wasteItem }) => {
   drag(ref);
 
   return (
-    <div className={'waste-item'} ref={ref}>
-      <div>{wasteItem.id}</div>
+    <div className={'waste-item-container'} ref={ref}>
+      <div className={'waste-item'}>
+        <div className={'waste-item-text'}>{wasteItem.id}</div>
+      </div>
     </div>
   );
 });
