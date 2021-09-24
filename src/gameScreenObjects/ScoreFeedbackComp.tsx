@@ -11,27 +11,20 @@ interface ScoreFeedbackProps {
 export const ScoreFeedbackComp: React.FC<ScoreFeedbackProps> = observer(
   ({ gameScore, endGame }) => {
     let feedback: string;
-    switch (gameScore) {
-      case 0:
-      case 1:
-      case 2:
-      case 3:
-      case 4:
-        feedback =
-          'Room for improvement! Check what you can recycle through your local council waste collection services!';
+    switch (true) {
+      case gameScore === 10:
+        feedback = 'Fantastic job! You are amazing at recycling!';
         break;
-      case 5:
-      case 6:
-      case 7:
+      case gameScore < 10 && gameScore > 7:
+        feedback = "Congratulations! You're pretty good at recycling. Keep it up!";
+        break;
+      case gameScore <= 7 && gameScore > 4:
         feedback =
           "Well done! There's room for improvement, but you've made a great start at recycling!";
         break;
-      case 8:
-      case 9:
-        feedback = "Congratulations! You're pretty good at recycling. Keep it up!";
-        break;
-      case 10:
-        feedback = 'Fantastic job! You are amazing at recycling!';
+      case gameScore <= 4 && gameScore >= 0:
+        feedback =
+          'Room for improvement! Check what you can recycle through your local council waste collection services!';
         break;
     }
 
