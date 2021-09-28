@@ -1,6 +1,6 @@
 {
   "name": "recycling-game",
-  "homepage": "http://username.github.io/recycling-game",
+  "homepage": "http://elsalindholm.github.io/recycling-game",
   "version": "1.0.0",
   "description": "Recycle waste items by dragging and dropping them into the correct bins.",
   "proxy": "http://localhost:8080",
